@@ -7,7 +7,7 @@ const rates = {
 };
 
 const names = {
-  USD: "دولار",
+  USD: "دولار أمريكي",
   SAR: "ريال سعودي",
   EUR: "يورو",
   AED: "درهم إماراتي",
@@ -25,16 +25,23 @@ for (let code in names) {
 from.value = "USD";
 to.value = "SAR";
 
-function conv() {
-  const amount = parseFloat(document.getElementById("amt").value);
+document.getElementById("swapBtn").onclick = () => {
+  let temp = from.value;
+  from.value = to.value;
+  to.value = temp;
+};
+
+document.getElementById("convertBtn").onclick = () => {
+  const amount = parseFloat(document.getElementById("amount").value);
 
   if (isNaN(amount)) {
-    document.getElementById("r").innerText = "أدخل مبلغًا صحيحًا";
+    document.getElementById("result").innerText = "أدخل مبلغًا صحيحًا";
     return;
   }
 
-  const result = amount / rates[from.value] * rates[to.value];
+  const usd = amount / rates[from.value];
+  const result = usd * rates[to.value];
 
-  document.getElementById("r").innerText =
+  document.getElementById("result").innerText =
     `${result.toFixed(2)} ${to.value}`;
-}
+};
