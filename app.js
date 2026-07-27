@@ -1,33 +1,37 @@
 const rates = {
-  SAR: 1,
-  USD: 3.75,
-  KWD: 12.1,
-  EUR: 4.3,
-  AED: 1.02,
-  QAR: 1.03,
-  BHD: 9.95,
-  OMR: 9.74
+USD:1,
+SAR:3.75,
+EUR:0.86,
+AED:3.67,
+KWD:0.31,
+QAR:3.64
 };
 
-const themeBtn = document.getElementById("themeBtn");
+function convert(){
 
-themeBtn.onclick = () => {
-  document.body.classList.toggle("dark");
-  themeBtn.textContent =
-    document.body.classList.contains("dark") ? "☀️" : "🌙";
-};
+let amount=parseFloat(document.getElementById("amount").value);
 
-function conv() {
-  const amt = parseFloat(document.getElementById("amt").value);
-  const from = document.getElementById("from").value;
-  const to = document.getElementById("to").value;
+let from=document.getElementById("from").value;
 
-  if (isNaN(amt)) {
-    document.getElementById("r").innerText = "أدخل مبلغًا صحيحًا";
-    return;
-  }
+let to=document.getElementById("to").value;
 
-  const result = (amt / rates[from]) * rates[to];
-  document.getElementById("r").innerText =
-    result.toFixed(2) + " " + to;
+if(isNaN(amount)){
+document.getElementById("result").innerHTML="أدخل مبلغاً صحيحاً";
+return;
+}
+
+let usd=amount/rates[from];
+
+let result=usd*rates[to];
+
+document.getElementById("result").innerHTML=result.toFixed(2)+" "+to;
+
+}
+
+document.getElementById("themeBtn").onclick=function(){
+
+document.body.classList.toggle("dark");
+
+this.innerHTML=document.body.classList.contains("dark")?"🌙":"☀️";
+
 }
