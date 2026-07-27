@@ -1,0 +1,1 @@
+const rates={SAR:1,KWD:12.1,USD:3.75};t.onclick=()=>document.body.classList.toggle('dark');function conv(){let a=+amt.value;let s=a*rates[from.value]/rates[to.value];r.textContent=s.toFixed(2)+' '+to.value;}
