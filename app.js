@@ -1,37 +1,40 @@
 const rates = {
-USD:1,
-SAR:3.75,
-EUR:0.86,
-AED:3.67,
-KWD:0.31,
-QAR:3.64
+  USD: 1,
+  SAR: 3.75,
+  EUR: 0.86,
+  AED: 3.67,
+  KWD: 0.31
 };
 
-function convert(){
+const names = {
+  USD: "دولار",
+  SAR: "ريال سعودي",
+  EUR: "يورو",
+  AED: "درهم إماراتي",
+  KWD: "دينار كويتي"
+};
 
-let amount=parseFloat(document.getElementById("amount").value);
+const from = document.getElementById("from");
+const to = document.getElementById("to");
 
-let from=document.getElementById("from").value;
-
-let to=document.getElementById("to").value;
-
-if(isNaN(amount)){
-document.getElementById("result").innerHTML="أدخل مبلغاً صحيحاً";
-return;
+for (let code in names) {
+  from.innerHTML += `<option value="${code}">${names[code]}</option>`;
+  to.innerHTML += `<option value="${code}">${names[code]}</option>`;
 }
 
-let usd=amount/rates[from];
+from.value = "USD";
+to.value = "SAR";
 
-let result=usd*rates[to];
+function conv() {
+  const amount = parseFloat(document.getElementById("amt").value);
 
-document.getElementById("result").innerHTML=result.toFixed(2)+" "+to;
+  if (isNaN(amount)) {
+    document.getElementById("r").innerText = "أدخل مبلغًا صحيحًا";
+    return;
+  }
 
-}
+  const result = amount / rates[from.value] * rates[to.value];
 
-document.getElementById("themeBtn").onclick=function(){
-
-document.body.classList.toggle("dark");
-
-this.innerHTML=document.body.classList.contains("dark")?"🌙":"☀️";
-
+  document.getElementById("r").innerText =
+    `${result.toFixed(2)} ${to.value}`;
 }
