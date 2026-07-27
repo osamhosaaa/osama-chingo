@@ -3,8 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>محول العملات</title>
+<title>محول العملات الاحترافي</title>
+
 <link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -15,29 +21,24 @@
 
 <h1>💱 محول العملات</h1>
 
-<input id="amount" type="number" placeholder="أدخل المبلغ">
+<input
+id="amount"
+type="number"
+placeholder="أدخل المبلغ">
 
-<select id="from">
-<option value="USD">دولار</option>
-<option value="SAR">ريال سعودي</option>
-<option value="EUR">يورو</option>
-<option value="AED">درهم إماراتي</option>
-<option value="KWD">دينار كويتي</option>
-<option value="QAR">ريال قطري</option>
-</select>
+<select id="from"></select>
 
-<select id="to">
-<option value="SAR">ريال سعودي</option>
-<option value="USD">دولار</option>
-<option value="EUR">يورو</option>
-<option value="AED">درهم إماراتي</option>
-<option value="KWD">دينار كويتي</option>
-<option value="QAR">ريال قطري</option>
-</select>
+<button id="swapBtn">🔄</button>
 
-<button onclick="convert()">تحويل</button>
+<select id="to"></select>
 
-<h2 id="result"></h2>
+<button id="convertBtn">
+تحويل
+</button>
+
+<div id="result">
+أدخل مبلغاً ثم اضغط تحويل
+</div>
 
 </div>
 
