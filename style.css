@@ -1,57 +1,65 @@
 body{
-    margin:0;
-    padding:20px;
-    font-family:Tahoma,sans-serif;
-    direction:rtl;
-    text-align:center;
+margin:0;
+font-family:Tahoma;
+background:
+linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+url("background.jpg");
 
-    background:
-    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-    url("bg.jpg");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
 
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-
-    color:#fff;
-}
-
-.dark{
-    background:
-    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-    url("bg.jpg");
-
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
 }
 
 .container{
-    max-width:420px;
-    margin:60px auto;
-    padding:20px;
-    background:rgba(255,255,255,.15);
-    backdrop-filter:blur(10px);
-    border-radius:20px;
-    box-shadow:0 8px 30px rgba(0,0,0,.35);
+background:rgba(255,255,255,.15);
+padding:25px;
+border-radius:20px;
+backdrop-filter:blur(12px);
+width:340px;
+text-align:center;
 }
 
 input,select,button{
-    width:100%;
-    padding:12px;
-    margin:8px 0;
-    border:none;
-    border-radius:10px;
-    font-size:18px;
+width:100%;
+padding:14px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+font-size:18px;
 }
 
 button{
-    background:#2ecc71;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
+background:#2ecc71;
+color:white;
+font-weight:bold;
+cursor:pointer;
 }
 
 button:hover{
-    background:#27ae60;
+background:#27ae60;
+}
+
+#themeBtn{
+position:absolute;
+top:20px;
+right:20px;
+width:55px;
+height:55px;
+border-radius:50%;
+font-size:22px;
+}
+
+.dark{
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+url("background.jpg");
+
+background-size:cover;
+background-position:center;
 }
