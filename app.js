@@ -16,32 +16,49 @@ const names = {
 
 const from = document.getElementById("from");
 const to = document.getElementById("to");
+const amount = document.getElementById("amount");
+const result = document.getElementById("result");
+const themeBtn = document.getElementById("themeBtn");
 
-for (let code in names) {
-  from.innerHTML += `<option value="${code}">${names[code]}</option>`;
-  to.innerHTML += `<option value="${code}">${names[code]}</option>`;
+for (const code in names) {
+    from.innerHTML += `<option value="${code}">${code} - ${names[code]}</option>`;
+    to.innerHTML += `<option value="${code}">${code} - ${names[code]}</option>`;
 }
 
 from.value = "USD";
 to.value = "SAR";
 
-document.getElementById("swapBtn").onclick = () => {
-  let temp = from.value;
-  from.value = to.value;
-  to.value = temp;
-};
+// تبديل العملات
+document.getElementById("swapBtn").addEventListener("click", () => {
+    const temp = from.value;
+    from.value = to.value;
+    to.value = temp;
+});
 
-document.getElementById("convertBtn").onclick = () => {
-  const amount = parseFloat(document.getElementById("amount").value);
+// التحويل
+document.getElementById("convertBtn").addEventListener("click", () => {
 
-  if (isNaN(amount)) {
-    document.getElementById("result").innerText = "أدخل مبلغًا صحيحًا";
-    return;
-  }
+    if (amount.value.trim() === "") {
+        result.innerHTML = "أدخل مبلغاً أولاً";
+        return;
+    }
 
-  const usd = amount / rates[from.value];
-  const result = usd * rates[to.value];
+    const value = Number(amount.value);
 
-  document.getElementById("result").innerText =
-    `${result.toFixed(2)} ${to.value}`;
-};
+    const usd = value / rates[from.value];
+    const converted = usd * rates[to.value];
+
+    result.innerHTML =
+        `${value} ${from.value} = <br><b>${converted.toFixed(2)} ${to.value}</b>`;
+});
+
+// الوضع النهاري والليلي
+themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        themeBtn.innerHTML = "🌙";
+    } else {
+        themeBtn.innerHTML = "☀️";
+    }
+});
