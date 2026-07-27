@@ -1,1 +1,47 @@
-<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>أسامة تشينجو</title><link rel="stylesheet" href="style.css"></head><body><h1>أسامة تشينجو | Osama Chingo</h1><button id=t>🌙/☀️</button><div><input id=amt type=number value=1><select id=from><option>SAR</option><option>KWD</option><option>USD</option></select><select id=to><option>KWD</option><option>SAR</option><option>USD</option></select><button onclick='conv()'>تحويل</button></div><p id=r></p><script src='app.js'></script></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أسامة تشينجو | Osama Chingo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <button id="themeBtn">🌙</button>
+
+  <div class="container">
+    <h1>أسامة تشينجو | Osama Chingo</h1>
+
+    <input id="amt" type="number" placeholder="أدخل المبلغ">
+
+    <select id="from">
+      <option value="SAR">SAR</option>
+      <option value="USD">USD</option>
+      <option value="KWD">KWD</option>
+      <option value="EUR">EUR</option>
+      <option value="AED">AED</option>
+      <option value="QAR">QAR</option>
+      <option value="BHD">BHD</option>
+      <option value="OMR">OMR</option>
+    </select>
+
+    <select id="to">
+      <option value="USD">USD</option>
+      <option value="SAR">SAR</option>
+      <option value="KWD">KWD</option>
+      <option value="EUR">EUR</option>
+      <option value="AED">AED</option>
+      <option value="QAR">QAR</option>
+      <option value="BHD">BHD</option>
+      <option value="OMR">OMR</option>
+    </select>
+
+    <button onclick="conv()">تحويل</button>
+
+    <h2 id="r"></h2>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
